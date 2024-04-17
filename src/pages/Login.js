@@ -29,7 +29,7 @@ const Login = () => {
               <button type="submit">Login</button>
             </form>
             </div>
-            <div>
+            <div className="login-img">
             <img
               src={loginImage}
               alt="women"
