@@ -2,10 +2,10 @@ import clock from "../images/clock.png"
 import localisation from "../images/localisation.png" 
 
 
-const FormationCard = () => {
+const FormationCard = ({ onClick }) => {
 
     return (
-        <div className="formation-card">
+        <div className="formation-card" onClick={onClick}>
          <div className="formation-card-bottom">  
             <h3>Titre de la formation</h3>
             <div className="date-localisation">

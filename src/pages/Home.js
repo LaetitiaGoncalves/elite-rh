@@ -1,11 +1,12 @@
 
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 //components
 import Header from "../components/Header"
+import MainHeadline from "../components/MainHeadline";
 import FormationCard from "../components/FormationCard";
 import Footer from "../components/Footer";
-//images
-import womanCorporate from "../images/womanCorporate.jpg"
+
 
 const Home = () => {
     const [inputValue, setInputValue] = useState("");
@@ -16,23 +17,16 @@ const Home = () => {
         setInputValue("");
       };
 
-
+      const navigate = useNavigate();
+      const handleCardClick = () => {
+        navigate("/formation");
+      };
+      
     return (
         <>
-        <div className="home-container">
-            <div className="header">
-                   <Header/>
-            </div>
-            <div className="main-headline">
-                <div>
-                    <h1>L'expertise RH <span>à portée de main</span></h1>
-                    <p>Boostez vos compétences en gestion des ressources humaines  ! Notre centre Elite RH propose des formations sur mesure pour les Managers RH, afin de les aider à exceller dans leur domaine. Développez vos talents en recrutement, droit du travail, et bien plus encore, pour être un acteur clé dans la réussite de votre entreprise.</p>
-                </div>
-                <div>
-                <img src={womanCorporate} alt="femme souriante devant un écran" className="logo-headline" />
-                </div>
-            </div>
-            <div className="formation-part">
+            <Header/>
+            <MainHeadline/>
+            <div className="formation-part container">
                 <div className="title-searchbar">
                     <h2>
                         Nos formations
@@ -49,9 +43,9 @@ const Home = () => {
                         </button>
                     </form>
                 </div>
-                <FormationCard/> 
+                <FormationCard onClick={handleCardClick}/> 
             </div>
-        </div>
+      
          <Footer/>
         </>
        
